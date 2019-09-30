@@ -2,6 +2,7 @@
 #define GAME_HPP
 	
 
+
 class Game
 {
 public:
@@ -15,12 +16,12 @@ public:
 private:
 
 	void processEvents();
-	void processKeys(sf::Event t_event);
-	void update(sf::Time t_deltaTime);
+	void processKeys();
+	void update();
 	void render();
-	
-	sf::RenderWindow m_window; // main SFML window
-	bool m_exitGame; // control exiting game
+	//
+	//sf::RenderWindow m_window; // main SFML window
+	//bool m_exitGame; // control exiting game
 
 };
 
