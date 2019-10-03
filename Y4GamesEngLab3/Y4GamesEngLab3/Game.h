@@ -1,27 +1,32 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 	
-
+#include <SDL.h>
+#include <stdio.h>
+#include <iostream>
+#include <SDL_image.h>
 
 class Game
 {
 public:
 	Game();
 	~Game();
-	/// <summary>
-	/// main method for game
-	/// </summary>
-	void run();
 
-private:
+	void init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_isFullScreen);
 
 	void processEvents();
-	void processKeys();
+
 	void update();
+
 	void render();
-	//
-	//sf::RenderWindow m_window; // main SFML window
-	//bool m_exitGame; // control exiting game
+	void cleanup();
+
+	bool m_isRunning{ false };
+private:
+	int m_count = 0;
+
+	SDL_Window * m_window;
+	SDL_Renderer * m_renderer;
 
 };
 

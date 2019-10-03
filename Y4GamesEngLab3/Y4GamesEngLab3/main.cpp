@@ -6,21 +6,32 @@
 /// </summary>
 
 #include "Game.h"
-#include <iostream>
-#include <SDL.h>
-#include <SDL_image.h>
 
 using namespace std;
+
+Game* game = nullptr;
 
 int main(int argc, char** argv)
 {
 
-	Game* game = new Game();
-	//Game game;
-	//game.run();
+	game = new Game();
+
+	game->init("lab3 SDL FSM", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+
+	while (game->m_isRunning)
+	{
+		game->processEvents();
+		game->update();
+		game->render();
+
+	}
+
+	game->cleanup();
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Quit();
 	
+	std::cin.get();
+
 	return 1; // success
 }
