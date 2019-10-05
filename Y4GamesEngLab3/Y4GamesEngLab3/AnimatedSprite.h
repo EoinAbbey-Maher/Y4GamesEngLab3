@@ -16,11 +16,14 @@ public:
 
 	~AnimatedSprite( );
 
+	const int& getClock();
 	const float& getTime();
 	const SDL_Rect& getFrame(int);
 	const std::vector<SDL_Rect>& getFrames();
 	const int GetCurrentFrame();
+	void addFrame(SDL_Rect&);
 	void update();
+	
 
 private:
 	std::vector<SDL_Rect> m_frames;

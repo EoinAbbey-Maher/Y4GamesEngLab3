@@ -1,19 +1,28 @@
 #include "AnimatedSprite.h"
 
+
+AnimatedSprite::~AnimatedSprite()
+{
+}
+
 AnimatedSprite::AnimatedSprite()
 {
 	m_currentFrame = 0;
 }
 
-AnimatedSprite::AnimatedSprite(const SDL_Texture& t_texture) : m_currentFrame(0), m_time(0.5f) {}	
+AnimatedSprite::AnimatedSprite(const SDL_Texture& t_texture) : m_currentFrame(0), m_time(0.5f) 
+{
+}	
 
-AnimatedSprite::AnimatedSprite(const SDL_Texture& t_texture, const SDL_Rect& t_Rect)
+AnimatedSprite::AnimatedSprite(const SDL_Texture& t_texture, const SDL_Rect& t_Rect) : m_currentFrame(0), m_time(0.5f)
 {
 	m_frames.push_back(t_Rect);
 }
 
-AnimatedSprite::~AnimatedSprite()
+
+const int& AnimatedSprite::getClock()
 {
+	return m_clock;
 }
 
 const float& AnimatedSprite::getTime()
@@ -38,6 +47,11 @@ const std::vector<SDL_Rect>& AnimatedSprite::getFrames()
 const int AnimatedSprite::GetCurrentFrame()
 {
 	return m_currentFrame;
+}
+
+void AnimatedSprite::addFrame(SDL_Rect& t_frameRect)
+{
+	m_frames.push_back(t_frameRect);
 }
 
 void AnimatedSprite::update()

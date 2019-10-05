@@ -20,12 +20,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
+    <ClCompile Include="ClimbingState.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="IdleState.cpp" />
+    <ClCompile Include="JumpingState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerFSM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedSprite.h" />
+    <ClInclude Include="ClimbingState.h" />
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="IdleState.h" />
+    <ClInclude Include="JumpingState.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerFSM.h" />
+    <ClInclude Include="state.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
