@@ -5,6 +5,8 @@
 #include "Debug.h"
 #include "state.h"
 
+class State;
+
 class PlayerFSM
 {
 private:

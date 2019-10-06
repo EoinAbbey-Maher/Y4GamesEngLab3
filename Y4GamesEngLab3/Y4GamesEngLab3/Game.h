@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <SDL_image.h>
+#include "Player.h"
 
 class Game
 {
@@ -27,6 +28,8 @@ private:
 
 	SDL_Window * m_window;
 	SDL_Renderer * m_renderer;
+
+	Player m_player;
 
 };
 

@@ -1,6 +1,7 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game():
+	m_player(*m_renderer)
 {
 }
 

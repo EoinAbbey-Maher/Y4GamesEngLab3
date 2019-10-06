@@ -3,6 +3,8 @@
 
 #include "PlayerFSM.h"
 
+class PlayerFSM;
+
 class State
 {
 public:
