@@ -7,6 +7,7 @@
 
 #include "Game.h"
 
+
 using namespace std;
 
 Game* game = nullptr;
@@ -18,7 +19,9 @@ int main(int argc, char** argv)
 
 	game->init("lab3 SDL FSM", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
 
-	while (game->m_isRunning)
+	game->loadContent();
+
+	while (game->isRunning())
 	{
 		game->processEvents();
 		game->update();
@@ -27,6 +30,7 @@ int main(int argc, char** argv)
 	}
 
 	game->cleanup();
+	game->unloadContent();
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Quit();

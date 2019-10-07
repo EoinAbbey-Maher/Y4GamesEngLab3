@@ -42,6 +42,30 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 	}
 }
 
+void Game::loadContent()
+{
+	DEBUG_MSG("Loading Content");
+	m_surface = SDL_LoadBMP("ASSETS\\IMAGES\\sprite.bmp");
+	m_texture = SDL_CreateTextureFromSurface(m_renderer, m_surface);
+
+	if (SDL_QueryTexture(m_texture, NULL, NULL, &m_source.w, &m_destination.h) == 0)
+	{
+		m_destination.x = m_source.x;
+		m_destination.y = m_source.y;
+		m_destination.w = m_source.w;
+		m_destination.h = m_source.h;	
+	}
+	else
+	{
+		std::cout << "Texture Failed" << std::endl;
+		m_isRunning = false;
+	}
+}
+
+void Game::unloadContent()
+{
+}
+
 void Game::processEvents()
 {
 	SDL_Event event;
@@ -57,6 +81,11 @@ void Game::processEvents()
 	}
 }
 
+bool Game::isRunning()
+{
+	return m_isRunning;
+}
+
 void Game::update()
 {
 	m_count++;
@@ -66,8 +95,17 @@ void Game::update()
 void Game::render()
 {
 	SDL_RenderClear(m_renderer);
-	SDL_RenderPresent(m_renderer);
 
+	if (m_renderer != nullptr && m_texture != nullptr)
+	{
+		SDL_Rect* testRect = new SDL_Rect();
+		testRect->x = 0;
+		testRect->y = 0;
+		testRect->h = 32;
+		testRect->w = 32;
+		SDL_RenderCopy(m_renderer, m_texture, testRect , NULL);
+	}
+	SDL_RenderPresent(m_renderer);
 
 }
 

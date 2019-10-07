@@ -40,7 +40,7 @@ private:
 
 	SDL_Renderer& m_renderer;
 
-	SDL_Rect m_intRect;
+	SDL_Rect m_intRect{ 0,0,32,32 };
 	std::vector<SDL_Rect> m_frames;
 	int m_currentFrame;
 	float m_time;

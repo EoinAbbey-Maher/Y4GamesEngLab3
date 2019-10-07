@@ -17,6 +17,7 @@ AnimatedSprite::AnimatedSprite(SDL_Texture& t_texture, SDL_Renderer& t_renderer)
 	m_time(0.5f),
 	m_renderer(t_renderer)
 {
+	
 }	
 
 AnimatedSprite::AnimatedSprite(SDL_Texture& t_texture, const SDL_Rect& t_Rect, SDL_Renderer& t_renderer) : 
@@ -85,7 +86,6 @@ void AnimatedSprite::update()
 
 void AnimatedSprite::setRect(const SDL_Rect& t_rect)
 {
-	m_intRect = t_rect;
 }
 
 int AnimatedSprite::getWidth()
@@ -100,13 +100,14 @@ int AnimatedSprite::getHeight()
 
 void AnimatedSprite::Render(int t_x, int t_y, SDL_Rect* t_clip)
 {
-	SDL_Rect renderFrame = { t_x, t_y, m_imageWidth, m_imageHeight };
+	SDL_Rect renderFrame = {  t_x, t_y, 32, 32};
 	if (t_clip != NULL)
 	{
+		
 		renderFrame.w = t_clip->w;
 		renderFrame.h = t_clip->h;
 	}
-	SDL_RenderCopy(&m_renderer, m_texture, t_clip, &renderFrame);
+	SDL_RenderCopy(&m_renderer, m_texture, &m_intRect , &renderFrame);
 }
 
 bool AnimatedSprite::loadFromFile(std::string t_path)

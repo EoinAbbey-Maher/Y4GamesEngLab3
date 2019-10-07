@@ -14,20 +14,31 @@ public:
 	~Game();
 
 	void init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_isFullScreen);
+	void loadContent();
+	void unloadContent();
 
 	void processEvents();
+
+	bool isRunning();
 
 	void update();
 
 	void render();
 	void cleanup();
 
-	bool m_isRunning{ false };
+	
 private:
 	int m_count = 0;
+	bool m_isRunning{ false };
+
 
 	SDL_Window * m_window;
 	SDL_Renderer * m_renderer;
+	SDL_Texture* m_texture;
+	SDL_Surface* m_surface;
+
+	SDL_Rect m_source;
+	SDL_Rect m_destination;
 
 	Player m_player;
 
