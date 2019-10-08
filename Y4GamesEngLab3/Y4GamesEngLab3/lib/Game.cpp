@@ -11,7 +11,6 @@ Game::~Game()
 
 void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_isFullScreen)
 {
-
 	int flags = 0;
 	if (t_isFullScreen)
 	{
@@ -32,6 +31,8 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 		m_renderer = SDL_CreateRenderer(m_window, -1, 0);
 		if (m_renderer)
 		{
+			m_player.setRenderer(*m_renderer);
+			m_player.getAnimatedSprite().setRenderer(*m_renderer);
 			SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
 			m_isRunning = true;
 		}
@@ -54,6 +55,8 @@ void Game::loadContent()
 		m_destination.y = m_source.y;
 		m_destination.w = m_source.w;
 		m_destination.h = m_source.h;	
+
+		m_player.getAnimatedSprite().setTexture(*m_texture);
 	}
 	else
 	{
@@ -88,23 +91,24 @@ bool Game::isRunning()
 
 void Game::update()
 {
-	m_count++;
-	std::cout << m_count << std::endl;
+	m_player.update();
 }
 
 void Game::render()
 {
-	SDL_RenderClear(m_renderer);
 
-	if (m_renderer != nullptr && m_texture != nullptr)
-	{
-		SDL_Rect* testRect = new SDL_Rect();
-		testRect->x = 0;
-		testRect->y = 0;
-		testRect->h = 32;
-		testRect->w = 32;
-		SDL_RenderCopy(m_renderer, m_texture, testRect , NULL);
-	}
+
+	SDL_RenderClear(m_renderer);
+	m_player.render();
+	//if (m_renderer != nullptr && m_texture != nullptr)
+	//{
+	//	SDL_Rect* testRect = new SDL_Rect();
+	//	testRect->x = 0;
+	//	testRect->y = 0;
+	//	testRect->h = 32;
+	//	testRect->w = 32;
+	//	SDL_RenderCopy(m_renderer, m_texture, testRect , NULL);
+	//}
 	SDL_RenderPresent(m_renderer);
 
 }

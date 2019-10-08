@@ -18,8 +18,11 @@ public:
 	AnimatedSprite& getAnimatedSprite();
 	void handleInput(); ///Add the Input here when finished with that class
 	void update();	
+	void render();
+	void setRenderer(SDL_Renderer& t_render);
 
-	SDL_Renderer& m_renderer;
+
+	SDL_Renderer* m_renderer;
 };
 
 #endif // !PLAYER_H

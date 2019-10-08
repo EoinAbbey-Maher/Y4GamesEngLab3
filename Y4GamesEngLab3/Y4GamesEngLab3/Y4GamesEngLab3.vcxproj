@@ -19,27 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnimatedSprite.cpp" />
-    <ClCompile Include="ClimbingState.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="IdleState.cpp" />
-    <ClCompile Include="JumpingState.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayerFSM.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="AnimatedSprite.h" />
-    <ClInclude Include="ClimbingState.h" />
-    <ClInclude Include="Debug.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="IdleState.h" />
-    <ClInclude Include="JumpingState.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerFSM.h" />
-    <ClInclude Include="state.h" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
@@ -52,6 +31,27 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AnimatedSprite.h" />
+    <ClInclude Include="include\ClimbingState.h" />
+    <ClInclude Include="include\Debug.h" />
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\IdleState.h" />
+    <ClInclude Include="include\JumpingState.h" />
+    <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\PlayerFSM.h" />
+    <ClInclude Include="include\state.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\AnimatedSprite.cpp" />
+    <ClCompile Include="lib\ClimbingState.cpp" />
+    <ClCompile Include="lib\Game.cpp" />
+    <ClCompile Include="lib\IdleState.cpp" />
+    <ClCompile Include="lib\JumpingState.cpp" />
+    <ClCompile Include="lib\main.cpp" />
+    <ClCompile Include="lib\Player.cpp" />
+    <ClCompile Include="lib\PlayerFSM.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -110,10 +110,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SDL_SDK)\include; </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SDL_SDK)\include; .\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SDL_SDK)\lib\x86; </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SDL_SDK)\lib\x86; .\lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2main.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>

@@ -1,30 +1,26 @@
 #include "AnimatedSprite.h"
+#include "Debug.h"
 
 
 AnimatedSprite::~AnimatedSprite()
 {
 }
 
-AnimatedSprite::AnimatedSprite(SDL_Renderer& t_renderer):
-	m_renderer(t_renderer)
+AnimatedSprite::AnimatedSprite()
 {
 	m_currentFrame = 0;
 }
 
-AnimatedSprite::AnimatedSprite(SDL_Texture& t_texture, SDL_Renderer& t_renderer) :
+AnimatedSprite::AnimatedSprite(SDL_Texture& t_texture) :
 	m_texture(&t_texture), 
-	m_currentFrame(0), 
-	m_time(0.5f),
-	m_renderer(t_renderer)
+	m_currentFrame(0) 
 {
 	
 }	
 
-AnimatedSprite::AnimatedSprite(SDL_Texture& t_texture, const SDL_Rect& t_Rect, SDL_Renderer& t_renderer) : 
+AnimatedSprite::AnimatedSprite(SDL_Texture& t_texture, const SDL_Rect& t_Rect) : 
 	m_texture(&t_texture), 
-	m_currentFrame(0), 
-	m_time(0.5f),
-	m_renderer(t_renderer)
+	m_currentFrame(0) 
 {
 	m_frames.push_back(t_Rect);
 }
@@ -42,11 +38,7 @@ const float& AnimatedSprite::getTime()
 
 const SDL_Rect& AnimatedSprite::getFrame(int t_n)
 {
-	if (t_n < m_frames.size())
-	{
-		return m_frames[t_n];
-	}
-	return m_frames[0];
+	return m_frames[t_n];
 }
 
 const std::vector<SDL_Rect>& AnimatedSprite::getFrames()
@@ -84,6 +76,17 @@ void AnimatedSprite::update()
 	}
 }
 
+void AnimatedSprite::setTexture(SDL_Texture& t_texture)
+{
+	m_texture = &t_texture;
+}
+
+void AnimatedSprite::setRenderer(SDL_Renderer& t_render)
+{
+	m_renderer = &t_render;
+}
+
+
 void AnimatedSprite::setRect(const SDL_Rect& t_rect)
 {
 }
@@ -98,21 +101,28 @@ int AnimatedSprite::getHeight()
 	return m_imageHeight;
 }
 
-void AnimatedSprite::Render(int t_x, int t_y, SDL_Rect* t_clip)
+void AnimatedSprite::Render()
 {
-	SDL_Rect renderFrame = {  t_x, t_y, 32, 32};
-	if (t_clip != NULL)
-	{
-		
-		renderFrame.w = t_clip->w;
-		renderFrame.h = t_clip->h;
-	}
-	SDL_RenderCopy(&m_renderer, m_texture, &m_intRect , &renderFrame);
+	SDL_Rect renderFrame = getFrame(m_currentFrame);
+		renderFrame.w = 32;
+		renderFrame.h = 32;
+	SDL_RenderCopy(m_renderer, m_texture, &renderFrame , NULL);
 }
 
-bool AnimatedSprite::loadFromFile(std::string t_path)
+bool AnimatedSprite::loadFromFile(const char * t_path)
 {
-	return false;
+	DEBUG_MSG("loading Texture")
+	m_surface= SDL_LoadBMP(t_path);
+	m_texture = SDL_CreateTextureFromSurface(m_renderer, m_surface);
+	SDL_FreeSurface(m_surface);
+
+	if (m_texture == NULL)
+	{
+		DEBUG_MSG("Texture Failed")
+	}
+
+	DEBUG_MSG("Texture Success")
+	return true;
 }
 
 
