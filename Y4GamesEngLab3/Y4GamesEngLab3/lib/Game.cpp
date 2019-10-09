@@ -46,7 +46,7 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 void Game::loadContent()
 {
 	DEBUG_MSG("Loading Content");
-	m_surface = SDL_LoadBMP("ASSETS\\IMAGES\\sprite.bmp");
+	m_surface = SDL_LoadBMP("ASSETS\\IMAGES\\sprite1.bmp");
 	m_texture = SDL_CreateTextureFromSurface(m_renderer, m_surface);
 
 	if (SDL_QueryTexture(m_texture, NULL, NULL, &m_source.w, &m_destination.h) == 0)

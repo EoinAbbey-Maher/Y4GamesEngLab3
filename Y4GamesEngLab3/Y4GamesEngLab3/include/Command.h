@@ -63,6 +63,13 @@ public:
 	}
 };
 
+class RCTRLCommand : public Command
+{
+public:
+	virtual void execute()
+	{
+	}
+};
 class RightCommand : public Command
 {
 public:

@@ -44,15 +44,15 @@ private:
 
 	SDL_Texture* m_texture;
 	SDL_Surface* m_surface;
-	int m_imageWidth;
-	int m_imageHeight;
+	int m_imageWidth{ 65};
+	int m_imageHeight{ 66 };
 
 	SDL_Renderer* m_renderer = nullptr;
 
-	SDL_Rect m_intRect{ 0,0,32,32 };
+	SDL_Rect m_intRect{ 0,0,75,32 };
 	std::vector<SDL_Rect> m_frames;
 	int m_currentFrame;
-	float m_time{ 1000.0f };
+	float m_time{ 2000.0f};
 	int m_clock;
 
 };

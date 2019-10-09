@@ -25,9 +25,6 @@
     <Filter Include="Header Files\Debug">
       <UniqueIdentifier>{010a94c9-1e30-4a5c-9af9-694a1ff1a72c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\FSM">
-      <UniqueIdentifier>{6e1c4d37-803a-457b-a3b2-aca24f3debc0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{b0acfa42-8b53-467c-aa59-a799bda71797}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,9 @@
     </Filter>
     <Filter Include="Source Files\Input">
       <UniqueIdentifier>{59dd43e1-0c6e-46a1-864f-df8cd1b1003f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Debug\FSM">
+      <UniqueIdentifier>{6e1c4d37-803a-457b-a3b2-aca24f3debc0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -68,19 +68,19 @@
       <Filter>Header Files\Debug</Filter>
     </ClInclude>
     <ClInclude Include="include\ClimbingState.h">
-      <Filter>Header Files\FSM</Filter>
+      <Filter>Header Files\Debug\FSM</Filter>
     </ClInclude>
     <ClInclude Include="include\IdleState.h">
-      <Filter>Header Files\FSM</Filter>
+      <Filter>Header Files\Debug\FSM</Filter>
     </ClInclude>
     <ClInclude Include="include\JumpingState.h">
-      <Filter>Header Files\FSM</Filter>
+      <Filter>Header Files\Debug\FSM</Filter>
     </ClInclude>
     <ClInclude Include="include\state.h">
-      <Filter>Header Files\FSM</Filter>
+      <Filter>Header Files\Debug\FSM</Filter>
     </ClInclude>
     <ClInclude Include="include\PlayerFSM.h">
-      <Filter>Header Files\FSM</Filter>
+      <Filter>Header Files\Debug\FSM</Filter>
     </ClInclude>
     <ClInclude Include="include\Player.h">
       <Filter>Header Files\GameObject</Filter>
@@ -90,6 +90,12 @@
     </ClInclude>
     <ClInclude Include="include\InputHandler.h">
       <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\WalkingState.h">
+      <Filter>Header Files\Debug\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FallingState.h">
+      <Filter>Header Files\Debug\FSM</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +128,12 @@
     </ClCompile>
     <ClCompile Include="lib\InputHandler.cpp">
       <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\WalkingState.cpp">
+      <Filter>Source Files\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FallingState.cpp">
+      <Filter>Source Files\FSM</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

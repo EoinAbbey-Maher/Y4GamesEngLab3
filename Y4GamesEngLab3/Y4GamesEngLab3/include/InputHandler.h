@@ -19,6 +19,7 @@ public:
 	Command* buttonDown = new DownCommand();
 	Command* buttonLeft	 = new LeftCommand();
 	Command* buttonRight = new RightCommand();
+	Command* buttonRCTRL = new RCTRLCommand();
 private:
 
 	/// <summary>

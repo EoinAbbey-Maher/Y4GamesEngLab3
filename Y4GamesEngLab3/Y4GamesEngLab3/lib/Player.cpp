@@ -6,8 +6,6 @@
 Player::Player(SDL_Renderer& t_renderer) : 
 	m_renderer(&t_renderer)
 {
-	m_animatedSprite.loadFromFile("ASSETS\\IMAGES\\sprite.bmp");
-
 	SDL_Rect intrect;
 
 	for (int i = 0; i < 3; i++)
@@ -26,8 +24,6 @@ Player::Player(SDL_Renderer& t_renderer) :
 Player::Player(const AnimatedSprite& t_s, SDL_Renderer& t_renderer) :
 	m_renderer(&t_renderer)
 {
-	m_animatedSprite.loadFromFile("ASSETS\\IMAGES\\sprite.bmp");
-
 	SDL_Rect intrect;
 
 	for (int i = 0; i < 3; i++)

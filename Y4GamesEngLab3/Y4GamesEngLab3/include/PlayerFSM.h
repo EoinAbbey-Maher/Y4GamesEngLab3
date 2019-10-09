@@ -26,6 +26,8 @@ public:
 	State* Idle();
 	State* Jumping();
 	State* Climbing();
+	State* Walking();
+	State* Falling();
 };
 
 

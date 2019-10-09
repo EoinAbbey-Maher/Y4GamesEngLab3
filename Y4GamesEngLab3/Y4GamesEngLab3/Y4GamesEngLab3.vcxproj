@@ -37,6 +37,7 @@
     <ClInclude Include="include\ClimbingState.h" />
     <ClInclude Include="include\Command.h" />
     <ClInclude Include="include\Debug.h" />
+    <ClInclude Include="include\FallingState.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\IdleState.h" />
     <ClInclude Include="include\InputHandler.h" />
@@ -44,11 +45,13 @@
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\PlayerFSM.h" />
     <ClInclude Include="include\state.h" />
+    <ClInclude Include="include\WalkingState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\AnimatedSprite.cpp" />
     <ClCompile Include="lib\ClimbingState.cpp" />
     <ClCompile Include="lib\Command.cpp" />
+    <ClCompile Include="lib\FallingState.cpp" />
     <ClCompile Include="lib\Game.cpp" />
     <ClCompile Include="lib\IdleState.cpp" />
     <ClCompile Include="lib\InputHandler.cpp" />
@@ -56,6 +59,7 @@
     <ClCompile Include="lib\main.cpp" />
     <ClCompile Include="lib\Player.cpp" />
     <ClCompile Include="lib\PlayerFSM.cpp" />
+    <ClCompile Include="lib\WalkingState.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

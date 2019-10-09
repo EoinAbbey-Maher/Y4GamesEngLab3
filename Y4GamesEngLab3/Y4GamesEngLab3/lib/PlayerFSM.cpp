@@ -43,3 +43,15 @@ State* PlayerFSM::Climbing()
 	m_current->climbing(this);
 	return m_current;
 }
+
+State* PlayerFSM::Walking()
+{
+	m_current->walking(this);
+	return m_current;
+}
+
+State* PlayerFSM::Falling()
+{
+	m_current->falling(this);
+	return m_current;
+}
