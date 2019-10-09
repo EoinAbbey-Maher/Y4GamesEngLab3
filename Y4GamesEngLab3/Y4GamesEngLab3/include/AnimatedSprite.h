@@ -38,6 +38,8 @@ public:
 	int getHeight();
 	void Render();
 
+	int m_yPos{ 0 };
+
 private:
 
 	SDL_Texture* m_texture;

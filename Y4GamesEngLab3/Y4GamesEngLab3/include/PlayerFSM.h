@@ -23,9 +23,9 @@ public:
 	State* getCurrent();
 	State* getPrevious();
 
-	void Idle();
-	void Jumping();
-	void Climbing();
+	State* Idle();
+	State* Jumping();
+	State* Climbing();
 };
 
 

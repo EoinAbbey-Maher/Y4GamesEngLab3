@@ -1,39 +1,34 @@
 #include "InputHandler.h"
+#include "state.h"
 
 
-void InputHandler::handleInput(sf::Event t_event)
+void InputHandler::handleInput(SDL_Event &t_event, PlayerFSM& t_state, int& t_y)
 {
-	if (sf::Keyboard::Q == t_event.key.code)
+	SDL_Event  event = t_event;
+
+	switch (event.key.keysym.sym)
 	{
-		m_commandSequence->add(buttonQ);
+		case SDLK_UP:
+			t_state.setPrevious(t_state.getCurrent());
+			t_state.setCurrent(t_state.Jumping());
+			t_y = 0;
+			break;	
+		case SDLK_DOWN:
+			t_state.setPrevious(t_state.getCurrent());
+			t_state.setCurrent(t_state.Idle());
+			t_y = 1;
+			break;
+		case SDLK_LEFT:
+			t_state.setPrevious(t_state.getCurrent());
+			t_state.setCurrent(t_state.Climbing());
+			t_y = 2;
+			break;
+		case SDLK_RIGHT:
+			t_state.setPrevious(t_state.getCurrent());
+			t_state.setCurrent(t_state.Climbing());
+			t_y = 2;
+			break;
+		default:
+			break;
 	}
-	else if (sf::Keyboard::W == t_event.key.code)
-	{
-		m_commandSequence->add(buttonW);
-	}
-	else if (sf::Keyboard::E == t_event.key.code)
-	{
-		m_commandSequence->add(buttonE);
-	}
-	else if (sf::Keyboard::R == t_event.key.code)
-	{
-		m_commandSequence->add(buttonR);
-	}
-	else if (sf::Keyboard::T == t_event.key.code)
-	{
-		m_commandSequence->add(buttonT);
-	}
-	else if (sf::Keyboard::Y == t_event.key.code)
-	{
-		m_commandSequence->add(buttonY);
-	}
-	else if (sf::Keyboard::BackSpace == t_event.key.code)
-	{
-		m_commandSequence->undo();
-	}
-	else if (sf::Keyboard::LControl == t_event.key.code || sf::Keyboard::RControl == t_event.key.code)
-	{ 
-		m_commandSequence->redo();
-	}
-	m_commandSequence->execute();
 }

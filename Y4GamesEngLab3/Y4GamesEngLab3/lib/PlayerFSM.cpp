@@ -26,17 +26,20 @@ State* PlayerFSM::getPrevious()
 	return m_previous;
 }
 
-void PlayerFSM::Idle()
+State* PlayerFSM::Idle()
 {
 	m_current->idle(this);
+	return m_current;
 }
 
-void PlayerFSM::Jumping()
+State* PlayerFSM::Jumping()
 {
 	m_current->jumping(this);
+	return m_current;
 }
 
-void PlayerFSM::Climbing()
+State* PlayerFSM::Climbing()
 {
 	m_current->climbing(this);
+	return m_current;
 }

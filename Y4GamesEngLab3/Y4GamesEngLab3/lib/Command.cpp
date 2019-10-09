@@ -39,29 +39,5 @@ void MacroCommand::execute()
 		
 		Command* c = m_commands->at(i);
 		c->execute();
-		std::cout << c->getString();
 	}
 }
-
-void MacroCommand::undo()
-{
-	/// <summary>
-	/// steps the Iterator back one in the list
-	/// </summary>
-	if (m_commandsEnd != 0)
-	{
-		m_commandsEnd--;
-	}
-}
-
-void MacroCommand::redo()
-{
-	/// <summary>
-	/// Increases the Iterator position on the list to reshow the undone words
-	/// </summary>
-	if (m_commandsEnd != m_commands->size())
-	{
-		m_commandsEnd++;
-	}
-}
-

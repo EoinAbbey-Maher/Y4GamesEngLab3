@@ -104,6 +104,7 @@ int AnimatedSprite::getHeight()
 void AnimatedSprite::Render()
 {
 	SDL_Rect renderFrame = getFrame(m_currentFrame);
+		renderFrame.y = 32 * m_yPos;
 		renderFrame.w = 32;
 		renderFrame.h = 32;
 	SDL_RenderCopy(m_renderer, m_texture, &renderFrame , NULL);

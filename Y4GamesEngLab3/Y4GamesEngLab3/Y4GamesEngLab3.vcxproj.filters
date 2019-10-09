@@ -40,6 +40,12 @@
     <Filter Include="Header Files\GameObject">
       <UniqueIdentifier>{50f6cac4-c81b-4eca-b6f5-54ad539558ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{345b68b3-a36f-424a-8997-f21717188d60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{59dd43e1-0c6e-46a1-864f-df8cd1b1003f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
@@ -79,6 +85,12 @@
     <ClInclude Include="include\Player.h">
       <Filter>Header Files\GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="include\Command.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputHandler.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\AnimatedSprite.cpp">
@@ -104,6 +116,12 @@
     </ClCompile>
     <ClCompile Include="lib\main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\Command.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\InputHandler.cpp">
+      <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

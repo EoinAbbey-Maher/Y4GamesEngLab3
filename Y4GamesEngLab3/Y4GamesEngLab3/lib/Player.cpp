@@ -56,9 +56,9 @@ AnimatedSprite& Player::getAnimatedSprite()
 	return m_animatedSprite;
 }
 
-///Add in The Command Pattern from last lab
-void Player::handleInput()
+void Player::handleInput(SDL_Event & t_event)
 {
+	inputHandler.handleInput(t_event, m_state, m_animatedSprite.m_yPos);
 }
 
 void Player::update()

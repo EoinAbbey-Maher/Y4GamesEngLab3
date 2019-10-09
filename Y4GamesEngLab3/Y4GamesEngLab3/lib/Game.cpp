@@ -82,6 +82,8 @@ void Game::processEvents()
 	default:
 		break;
 	}
+
+	m_player.handleInput(event);
 }
 
 bool Game::isRunning()
